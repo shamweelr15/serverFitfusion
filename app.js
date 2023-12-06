@@ -12,6 +12,13 @@ const mongoose = require('mongoose');
 app.use(express.json());
 const PORT = process.env.PORT ||5000;
 
+if(process.env.NODE_ENV=='production'){
+    app.get('/',(req,res)=>{
+        app.use(express.static(path.resolve(__dirname,'client','build')))
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+    })
+}
+
 app.use(session({
     secret: 'FTSCS',
     resave: false,
