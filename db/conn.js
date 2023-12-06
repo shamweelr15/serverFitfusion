@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const DB= process.env.PORT ||5000;
+const DB= process.env.DATABASE;
 const API =process.env.DATABASE_API;
 const ACTIVITY =process.env.DATABASE_ACTIVITY;
 mongoose.connect(DB).then(()=>{
